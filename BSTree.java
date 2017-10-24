@@ -4,6 +4,7 @@
 
 import java.util.*;  
 import java.io.*;  
+import java.lang.*;
 
 class BST
 {
@@ -15,6 +16,7 @@ class BST
 public class BSTree 
 {
 	BST root;
+	int iter=0;
 
 	public BSTree()
 	{
@@ -82,7 +84,8 @@ public class BSTree
 					done = true;
 				}
 			}
-		}}
+		}
+	}
 
 
 	// Returns the right node.
@@ -249,8 +252,25 @@ public class BSTree
 	// (sorted) order.
 	public String toStringInOrder()
 	{
-		String temp;
-		while (node != null)
+		String preorder = inOrder(root);
+
+		return preorder.substring(0, preorder.length() - 1);
+	}
+
+	public String inOrder(BST node)
+	{
+		String temp="";
+
+		if (node == null)
+			return "";
+
+		temp = inOrder(node.left);
+
+		temp = temp + node.data + " ";
+
+		temp = temp + inOrder(node.right);
+
+		return temp;
 
 	}
 
@@ -259,11 +279,29 @@ public class BSTree
 	// of the left child and the contents of the right child.
 	public String toStringPreOrder()
 	{
+		String preorder = preOrder(root);
+
+		return preorder.substring(0, preorder.length() - 1);
 	}
 
 	public String preOrder(BST node)
 	{
+		String temp;
+		
+		if (node == null)
+			return "";
+
+		temp = node.data + " ";
+
+		temp = temp + preOrder(node.left);
+
+		temp = temp + preOrder(node.right);
+
+		return temp;
+
 	}
+
+
 
 	public static void main(String[] args) {
 		BSTree tree = new BSTree();

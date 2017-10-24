@@ -53,6 +53,11 @@ public class Practice5Test {
 		// Allen Codd Dijstra Hopper Knuth Lee Lovelace Matsumoto Thompson Turing Wilson
 		if (tree.toStringInOrder().equals("Allen Codd Dijstra Hopper Knuth Lee Lovelace Matsumoto Thompson Turing Wilson"))
 			return true;
+
+		System.out.println("Order:     " + tree.toStringInOrder() + "|");
+		System.out.println("Expecting: " + "Allen Codd Dijstra Hopper Knuth Lee Lovelace Matsumoto Thompson Turing Wilson|");
+
+
 		return false;
 	}
 	
